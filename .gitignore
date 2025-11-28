@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv
+conda-meta/
+
+# PyTorch / ML
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# TensorBoard & Logs
+LogFiles/
+logs/
+runs/
+*.log
+tensorboard/
+
+# Results & Outputs
+results*/
+result*/
+outputs/
+output/
+*.png
+*.jpg
+*.jpeg
+!Example.png
+
+# Data Directories
+data/
+REDS/
+EvRGB_Deblur/
+*.npz
+*.npy
+*.txt
+!requirements.txt
+!README*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Pretrained models (optional - uncomment if you don't want to track pretrained weights)
+# pretrained/
+
