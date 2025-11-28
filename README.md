@@ -27,14 +27,21 @@ The EvRGB-Deblur dataset is hosted on Google Drive.
 ```
 EvRGB_Deblur/
   blur/*.png
-  event/*.txt or *.npz   # see Dataset_Test_ERD for text format
-  sharp/*.png            # optional, used for PSNR/SSIM reporting
+  event/*.txt   # see Dataset_Test_ERD for text format
+  sharp/*.png    # optional, used for PSNR/SSIM reporting
 ```
+
+## Train
+
+```shell
+python train.py --TrainImgPath `Path of Train Image` --TrainEvePath `Path of Events` --TrainGTPath `Path of Ground Truth Image` --TestImgPath `Path of Test Image` --TestEvePath `Path of Test Events` --TestGTPath `Path of Test Ground Truth Image`
+```
+
 
 ## Evaluation
 Pretrained weights for both the luminance and color stages are also available on Google Drive.
 
-- Download link: [EvTradeNet Pretrained Weights]()
+- Download link: [EvTradeNet Pretrained Weights](https://drive.google.com/drive/folders/19bmHJDD4pHrRRzH0l-8ExD2dWZDFSDzh?usp=sharing)
 - Place `model_LuminDeblur_best.pth` and `model_ImgColorNet_best.pth` into the `pretrained/` directory.
 
 ```bash
@@ -44,12 +51,19 @@ python test.py \
   --RealImgPath EvRGB_Deblur/blur \
   --RealEvePath EvRGB_Deblur/event \
   --RealGTPath EvRGB_Deblur/sharp \
-  --RealSavePath ./results_evtradenet
+  --RealSavePath results_evtradenet
 ```
 The script writes restored frames to `RealSavePath`
 
 
 ## References
-1. Teng *et al.*, "Monochromatic Event Guided Image Deblurring with Event-triggering-aware Decomposition," ICCV 2025 MIPI Workshop. [[PDF]](https://openaccess.thecvf.com/content/ICCV2025W/MIPI/papers/Teng_Monochromatic_Event_Guided_Image_Deblurring_with_Event-triggering-aware_Decomposition_ICCVW_2025_paper.pdf)
-
+```bibtex
+@InProceedings{Teng_2025_ICCV,
+    author    = {Teng, Minggui and Li, Boyu and Yang, Yixin and Zhou, Chu and Chen, Yan and Ren, Jimmy S. and Shi, Boxin},
+    title     = {Monochromatic Event Guided Image Deblurring with Event-triggering-aware Decomposition},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops},
+    year      = {2025},
+    pages     = {3876-3885}
+}
+```
 
