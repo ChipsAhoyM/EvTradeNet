@@ -31,6 +31,12 @@ print("\nUnzipping files...")
 for fname, zip_path in local_zips.items():
     unzip_to(zip_path, target_dir)
     print(f"Unzipped {fname} into {target_dir}/")
+    # Remove the zip file after successful extraction to save space
+    try:
+        os.remove(zip_path)
+        print(f"Deleted {fname} ({zip_path})")
+    except OSError as e:
+        print(f"Warning: could not delete {fname} ({zip_path}): {e}")
 
 print("\nDone! Your dataset structure is now like:")
 print("""

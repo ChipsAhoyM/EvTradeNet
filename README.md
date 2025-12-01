@@ -2,12 +2,6 @@
 
 Implementation of **Monochromatic Event Guided Image Deblurring with Event-triggering-aware Decomposition** (ICCV 2025 MIPI Workshop)
 
-## Repository Layout
-- `model/`: network building blocks (`BaseBlock.py`) and the three main sub-networks (`Decompose.py`, `EvTradeNet.py`, `Recon.py`).
-- `utils/`: dataset readers, option parser, and weight initialization utilities.
-- `pretrained/`: placeholder weights for the luminance (`model_LuminDeblur.pth`) and color (`model_ImgColorNet.pth`) stages.
-- `train.py` / `test.py`: end-to-end scripts for supervised training and evaluation.
-
 ## Environment
 ```bash
 conda create -n evtradenet python=3.10
@@ -19,23 +13,15 @@ pip install einops numpy opencv-python scikit-image scipy tensorboardX tqdm lpip
 ## Data Preparation
 ### Real-world evaluation (EvRGB-Deblur)
 
-
-The EvRGB-Deblur dataset is hosted on Hugging Face. You can use `download.py` to download dataset.
+The EvRGB-Deblur dataset is hosted on HuggingFace. You can use `download.py` to download dataset.
 
 - Download link: [EvRGB-Deblur Dataset](https://huggingface.co/datasets/ChipsAhoyMG/ERD)
-```
-EvRGB_Deblur/
-  blur/*.png
-  event/*.txt
-  sharp/*.png    
-```
 
 ## Train
 
 ```shell
 python train.py --TrainImgPath `Path of Train Image` --TrainEvePath `Path of Events` --TrainGTPath `Path of Ground Truth Image` --TestImgPath `Path of Test Image` --TestEvePath `Path of Test Events` --TestGTPath `Path of Test Ground Truth Image`
 ```
-
 
 ## Evaluation
 Pretrained weights for both the luminance and color stages are also available on Google Drive.
@@ -45,8 +31,8 @@ Pretrained weights for both the luminance and color stages are also available on
 
 ```bash
 python test.py \
-  --ckp_ld pretrained/model_LuminDeblur_best.pth \
-  --ckp_cc pretrained/model_ImgColorNet_best.pth \
+  --ckp_ld pretrained/model_LuminDeblur.pth \
+  --ckp_cc pretrained/model_ImgColorNet.pth \
   --RealImgPath EvRGB_Deblur/blur \
   --RealEvePath EvRGB_Deblur/event \
   --RealGTPath EvRGB_Deblur/sharp \
@@ -57,7 +43,7 @@ The script writes restored frames to `RealSavePath`
 
 ## References
 ```bibtex
-@InProceedings{Teng_2025_ICCV,
+@InProceedings{TengEvTradeNet2025,
     author    = {Teng, Minggui and Li, Boyu and Yang, Yixin and Zhou, Chu and Chen, Yan and Ren, Jimmy S. and Shi, Boxin},
     title     = {Monochromatic Event Guided Image Deblurring with Event-triggering-aware Decomposition},
     booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops},
