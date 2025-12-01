@@ -13,7 +13,7 @@ Implementation of **Monochromatic Event Guided Image Deblurring with Event-trigg
 conda create -n evtradenet python=3.10
 conda activate evtradenet
 pip install torch torchvision
-pip install einops numpy opencv-python scikit-image scipy tensorboardX tqdm lpips
+pip install einops numpy opencv-python scikit-image scipy tensorboardX tqdm lpips "huggingface_hub[cli]"
 ```
 
 ## Data Preparation
@@ -27,8 +27,8 @@ The EvRGB-Deblur dataset is hosted on Google Drive.
 ```
 EvRGB_Deblur/
   blur/*.png
-  event/*.txt   # see Dataset_Test_ERD for text format
-  sharp/*.png    # optional, used for PSNR/SSIM reporting
+  event/*.txt
+  sharp/*.png    
 ```
 
 ## Train
