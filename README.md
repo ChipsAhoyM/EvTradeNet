@@ -20,10 +20,9 @@ pip install einops numpy opencv-python scikit-image scipy tensorboardX tqdm lpip
 ### Real-world evaluation (EvRGB-Deblur)
 
 
-The EvRGB-Deblur dataset is hosted on Google Drive.
+The EvRGB-Deblur dataset is hosted on Hugging Face. You can use `download.py` to download dataset.
 
-- Download link: [EvRGB-Deblur Dataset]()
-- After downloading, extract the contents under your project directory so the structure matches shown below.
+- Download link: [EvRGB-Deblur Dataset](https://huggingface.co/datasets/ChipsAhoyMG/ERD)
 ```
 EvRGB_Deblur/
   blur/*.png
